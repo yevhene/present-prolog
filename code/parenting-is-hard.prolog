@@ -1,15 +1,13 @@
-% my name is Tom
-
-% Ben is my father
+% Ben is Tom's father
 father(ben, tom).
 
-% Jan is my wife
+% Jan is Tom's wife
 married(tom, jan).
 
 % Jan is mother of Joy
 mother(jan, joy).
 
-% Joy has born Ray, from my father Ben
+% Joy has born Ray, from Tom's father Ben
 mother(joy, ray).
 father(ben, ray).
 

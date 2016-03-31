@@ -1,8 +1,9 @@
-% Fact
-speaker(yevhen).
+dragon(falkor).
+alignment(falkor, good).
 
-% Rule
-speaker(X) :- has_slides(X).
+dragon(smaug).
+alignment(smaug, evil).
 
-% ?- has_slides(yevhen)
-% true.
+mother(tiamat, X) :- dragon(X), alignment(X, evil).
+mother(daenerys, X) :- dragon(X).
+

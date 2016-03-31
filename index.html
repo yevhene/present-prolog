@@ -41,7 +41,136 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 
+				<section>
+					<h1>Prolog</h1>
+					<h3>the Dragon Language</h3>
+					<p>
+            <small>Created by Yevhen Shemet <br /> github: <a href="http://github.com/yevhene">yevhene</a></small>
+					</p>
+				</section>
 
+        <section>
+          <h2>Basics</h2>
+
+          <section>
+            <h3>Facts</h3>
+            <pre><code class="prolog hljs" data-trim contenteditable>
+dragon(falkor).
+alignment(falkor, good).
+
+dragon(smaug).
+alignment(smaug, evil).
+            </code></pre>
+          </section>
+
+          <section>
+            <h3>Rules</h3>
+            <pre><code class="hljs" data-trim contenteditable>
+mother(tiamat, X) :- dragon(X), alignment(X, evil).
+
+mother(daenerys, X) :- dragon(X).
+            </code></pre>
+          </section>
+
+          <section>
+            <h3>Queries</h3>
+            <pre><code class="hljs" data-trim contenteditable>
+?- mother(tiamat, falkor)
+false.
+            </code></pre>
+            <pre><code class="hljs" data-trim contenteditable>
+?- mother(X, falkor).
+X = daenerys.
+            </code></pre>
+            <pre><code class="hljs" data-trim contenteditable>
+?- mother(X, Y).
+X = tiamat,
+Y = smaug ;
+X = daenerys,
+Y = falkor ;
+X = daenerys,
+Y = smaug.
+            </code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>More examples</h2>
+          </section>
+          <section>
+            <h2>Parenting is simple</h2>
+            <pre><code class="hljs" data-trim contenteditable>
+parent(abraham, isaak).
+parent(isaak, jacob).
+parent(jacob, judah).
+
+ancestor(X, Y) :- parent(X, Y).
+ancestor(X, Y) :- parent(X, Z), ancestor(Z, Y).
+            </code></pre>
+            <pre><code class="hljs" data-trim contenteditable>
+?- ancestor(abraham, judah).
+true.
+            </code></pre>
+          </section>
+          <section>
+            <h2>Parenting is hard</h2>
+            <pre><code class="prolog hljs" data-trim contenteditable>
+% Jan is Tom's wife
+married(tom, jan).
+
+% Jan is mother of Joy
+mother(jan, joy).
+
+% Joy has born Ray, from Tom's father Ben
+mother(joy, ray).
+father(ben, ray).
+
+father_in_law(X, Y) :- married(X, Z), mother(Z, Y).
+brother(X, Y) :- father(Z, X), father(Z, Y).
+grandfather(X, Y) :- father_in_law(X, Z), mother(Z, Y).
+grandfather(X, Y) :- grandfather(X, Z), brother(Z, Y).
+            </code></pre>
+            <pre><code class="hljs" data-trim contenteditable>
+?- grandfather(tom, tom).
+true.
+            </code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>There be Dragons</h2>
+          </section>
+          <section>
+            <h2>Concat</h2>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Fifth generation computers</h2>
+            <h3>第五世代コンピュータ</h3>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Math</h2>
+          </section>
+          <section>
+            <h2>is</h2>
+          </section>
+          <section>
+            <h2>CLP(FD)</h2>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Not</h2>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Real world</h2>
+          </section>
+        </section>
 			</div>
 
 		</div>
