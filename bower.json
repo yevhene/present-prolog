@@ -1,0 +1,25 @@
+{
+  "name": "present-prolog",
+  "version": "1.0.0",
+  "main": [
+    "js/reveal.js",
+    "css/reveal.css"
+  ],
+  "homepage": "https://present-prolog.herokuapp.com",
+  "description": "Prolog presentation",
+  "authors": [
+    "Yevhen Shemet <yevhene@gmail.com>"
+  ],
+  "dependencies": {
+    "headjs": "~1.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hakimel/reveal.js.git"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ]
+}
