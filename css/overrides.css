@@ -1,0 +1,30 @@
+.dragon {
+  display: inline-block;
+  width: 5rem;
+  height: 5rem;
+}
+
+.dragon-P {
+  background: url('/img/dragon/P.svg') no-repeat;
+  background-size: 100% 100%;
+}
+
+.dragon-R {
+  background: url('/img/dragon/R.svg') no-repeat;
+  background-size: 100% 100%;
+}
+
+.dragon-O {
+  background: url('/img/dragon/O.svg') no-repeat;
+  background-size: 100% 100%;
+}
+
+.dragon-L {
+  background: url('/img/dragon/L.svg') no-repeat;
+  background-size: 100% 100%;
+}
+
+.dragon-G {
+  background: url('/img/dragon/G.svg') no-repeat;
+  background-size: 100% 100%;
+}
