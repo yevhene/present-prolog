@@ -1,9 +1,9 @@
 dragon(falkor).
-alignment(falkor, good).
+is_aligned(falkor, good).
 
 dragon(smaug).
-alignment(smaug, evil).
+is_aligned(smaug, evil).
 
-mother(tiamat, X) :- dragon(X), alignment(X, evil).
-mother(daenerys, X) :- dragon(X).
+mother_of(tiamat, X) :- dragon(X), is_aligned(X, evil).
+mother_of(daenerys, X) :- dragon(X).
 

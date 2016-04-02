@@ -1,3 +1,3 @@
 :- use_module(library(clpfd)).
 
-inc(X, Y) :- Y #= X + 1.
+n_inc(X, Y) :- Y #= X + 1.

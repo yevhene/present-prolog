@@ -1,17 +1,17 @@
 % Ben is Tom's father
-father(ben, tom).
+father_of(ben, tom).
 
 % Jan is Tom's wife
-married(tom, jan).
+married_on(tom, jan).
 
 % Jan is mother of Joy
-mother(jan, joy).
+mother_of(jan, joy).
 
 % Joy has born Ray, from Tom's father Ben
-mother(joy, ray).
-father(ben, ray).
+mother_of(joy, ray).
+father_of(ben, ray).
 
-father_in_law(X, Y) :- married(X, Z), mother(Z, Y).
-brother(X, Y) :- father(Z, X), father(Z, Y).
-grandfather(X, Y) :- father_in_law(X, Z), mother(Z, Y).
-grandfather(X, Y) :- grandfather(X, Z), brother(Z, Y).
+father_in_law_of(X, Y) :- married_on(X, Z), mother_of(Z, Y).
+brother_of(X, Y) :- father_of(Z, X), father_of(Z, Y).
+grandfather_of(X, Y) :- father_in_law_of(X, Z), mother_of(Z, Y).
+grandfather_of(X, Y) :- grandfather_of(X, Z), brother_of(Z, Y).

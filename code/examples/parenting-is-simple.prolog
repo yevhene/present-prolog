@@ -1,6 +1,6 @@
-parent(abraham, isaak).
-parent(isaak, jacob).
-parent(jacob, judah).
+parent_of(abraham, isaak).
+parent_of(isaak, jacob).
+parent_of(jacob, judah).
 
-ancestor(X, Y) :- parent(X, Y).
-ancestor(X, Y) :- parent(X, Z), ancestor(Z, Y).
+ancestor_of(X, Y) :- parent_of(X, Y).
+ancestor_of(X, Y) :- parent_of(X, Z), ancestor_of(Z, Y).
