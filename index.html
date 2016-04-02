@@ -244,10 +244,10 @@ true.
           <section>
             <h2>Before Cut</h2>
             <pre><code class="hljs" data-trim contenteditable>
-weight_of(elephant, 7000).
-weight_of(lion, 250).
-weight_of(tyrannosaurus, 1900).
-weight_of(cow, 725).
+animal_weight(elephant, 7000).
+animal_weight(lion, 250).
+animal_weight(tyrannosaurus, 1900).
+animal_weight(cow, 725).
 
 herbivorous(elephant).
 predator(lion).
@@ -255,8 +255,8 @@ predator(tyrannosaurus).
 herbivorous(cow).
             </code></pre>
             <pre><code class="hljs" data-trim contenteditable>
-small(X) :- weight_of(X, Y), Y < 500.
-big(X) :- weight_of(X, Y), Y >= 500.
+small(X) :- animal_weight(X, Y), Y < 500.
+big(X) :- animal_weight(X, Y), Y >= 500.
 
 eligible_for_noah_ark(X) :- big(X), herbivorous(X).
 eligible_for_noah_ark(X) :- small(X), predator(X).
@@ -275,8 +275,8 @@ X = lion.
           <section>
             <h2>The Cut</h2>
             <pre><code class="hljs" data-trim contenteditable>
-small(X) :- weight_of(X, Y), Y < 500.
-big(X) :- weight_of(X, Y), Y >= 500.
+small(X) :- animal_weight(X, Y), Y < 500.
+big(X) :- animal_weight(X, Y), Y >= 500.
 
 eligible_for_noah_ark(X) :- big(X), !, herbivorous(X).
 eligible_for_noah_ark(X) :- small(X), !, predator(X).
@@ -295,7 +295,7 @@ X = elephant.
             <pre><code class="hljs" data-trim contenteditable>
 not(P) :- P, !, fail; true.
 
-small(X) :- weight_of(X, Y), Y < 500.
+small(X) :- animal_weight(X, Y), Y < 500.
 big(X) :- not(small(X)).
 
 eligible_for_noah_ark(X) :- big(X), herbivorous(X).
