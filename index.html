@@ -79,11 +79,11 @@ mother_of(daenerys, X) :- dragon(X).
 ?- mother_of(tiamat, falkor)
 false.
             </code></pre>
-            <pre><code class="hljs" data-trim contenteditable>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>
 ?- mother_of(X, falkor).
 X = daenerys.
             </code></pre>
-            <pre><code class="hljs" data-trim contenteditable>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>
 ?- mother_of(X, Y).
 X = tiamat,
 Y = smaug ;
@@ -134,7 +134,7 @@ brother_of(X, Y) :- father_of(Z, X), father_of(Z, Y).
 grandfather_of(X, Y) :- father_in_law_of(X, Z), mother_of(Z, Y).
 grandfather_of(X, Y) :- grandfather_of(X, Z), brother_of(Z, Y).
             </code></pre>
-            <pre><code class="hljs" data-trim contenteditable>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>
 ?- grandfather_of(tom, tom).
 true.
             </code></pre>
@@ -182,23 +182,23 @@ append([X | L1], L2, [X | L3]) :- append(L1, L2, L3).
 ?- append([a, b], [c, d], X).
 X = [a, b, c, d].
             </code></pre>
-            <pre><code class="hljs" data-trim contenteditable>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>
 ?- append([a, b], X, [a, b, c, d]).
 X = [c, d].
             </code></pre>
           </section>
           <section>
-            <h2>Append</h2>
+            <h2>Append (cont)</h2>
             <pre><code class="hljs" data-trim contenteditable>
 append([], L, L).
 append([X | L1], L2, [X | L3]) :- append(L1, L2, L3).
             </code></pre>
-            <pre><code class="hljs" data-trim contenteditable>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>
 ?- append(Before, [mar | After], [jan, feb, mar, apr, may, jun]).
 Before = [jan, feb],
 After = [apr, may, jun].
             </code></pre>
-            <pre><code class="hljs" data-trim contenteditable>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>
 ?- append(X, Y, [a, b, c]).
 X = [],
 Y = [a, b, c] ;
@@ -261,11 +261,11 @@ big(X) :- weight_of(X, Y), Y >= 500.
 eligible_for_noah_ark(X) :- big(X), herbivorous(X).
 eligible_for_noah_ark(X) :- small(X), predator(X).
             </code></pre>
-            <pre><code class="hljs" data-trim contenteditable>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>
 ?- eligible_for_noah_ark(elephant).
 true.
             </code></pre>
-            <pre><code class="hljs" data-trim contenteditable>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>
 ?- eligible_for_noah_ark(elephant).
 X = elephant ;
 X = cow ;
@@ -281,11 +281,11 @@ big(X) :- weight_of(X, Y), Y >= 500.
 eligible_for_noah_ark(X) :- big(X), !, herbivorous(X).
 eligible_for_noah_ark(X) :- small(X), !, predator(X).
             </code></pre>
-            <pre><code class="hljs" data-trim contenteditable>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>
 ?- eligible_for_noah_ark(elephant).
 true.
             </code></pre>
-            <pre><code class="hljs" data-trim contenteditable>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>
 ?- eligible_for_noah_ark(elephant).
 X = elephant.
             </code></pre>
@@ -301,11 +301,11 @@ big(X) :- not(small(X)).
 eligible_for_noah_ark(X) :- big(X), herbivorous(X).
 eligible_for_noah_ark(X) :- small(X), predator(X).
             </code></pre>
-            <pre><code class="hljs" data-trim contenteditable>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>
 ?- eligible_for_noah_ark(elephant).
 true.
             </code></pre>
-            <pre><code class="hljs" data-trim contenteditable>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>
 ?- eligible_for_noah_ark(X).
 X = lion.
             </code></pre>
@@ -361,7 +361,7 @@ n_inc(X, Y) :- Y is X + 1.
 ?- n_inc(7, X).
 X = 8.
             </code></pre>
-            <pre><code class="hljs" data-trim contenteditable>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>
 ?- n_inc(X, 8).
 ERROR: is/2: Arguments are not sufficiently instantiated
             </code></pre>
@@ -430,14 +430,13 @@ X = 7.
               <li>AI</li>
               <li>Decision Support</li>
               <li>Data analysis</li>
-              <li>Dolphins debugging</li>
             </ul>
           </section>
           <section>
             <h2>Real world</h2>
             <ul>
               <li>Dolphins debugging</li>
-              <li>PigE <i>discovered that increasing the air flow over a hot pig shed by 0.2-0.6 meter per second (an increase not really discernable by humans), doubled the animals' growth rate. Total 496% increase in profits.</i></li>
+              <li>PigE</li>
               <li>Weather</li>
               <li>Erlang</li>
             </ul>
