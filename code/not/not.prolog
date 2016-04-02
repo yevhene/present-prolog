@@ -1,4 +1,4 @@
-not(X) :- X, !, fail; true.
+not(P) :- P, !, fail; true.
 
 small(X) :- animal_weight(X, Y), Y < 500.
 big(X) :- not(small(X)).
