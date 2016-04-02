@@ -242,10 +242,76 @@ true.
             <h2>Not</h2>
           </section>
           <section>
-            <h2>Closed world assumption</h2>
+            <h2>Before Cut</h2>
+            <pre><code class="hljs" data-trim contenteditable>
+weight_of(elephant, 7000).
+weight_of(lion, 250).
+weight_of(tyrannosaurus, 1900).
+weight_of(cow, 725).
+
+herbivorous(elephant).
+predator(lion).
+predator(tyrannosaurus).
+herbivorous(cow).
+            </code></pre>
+            <pre><code class="hljs" data-trim contenteditable>
+small(X) :- weight_of(X, Y), Y < 500.
+big(X) :- weight_of(X, Y), Y >= 500.
+
+eligible_for_noah_ark(X) :- big(X), herbivorous(X).
+eligible_for_noah_ark(X) :- small(X), predator(X).
+            </code></pre>
+            <pre><code class="hljs" data-trim contenteditable>
+?- eligible_for_noah_ark(elephant).
+true.
+            </code></pre>
+            <pre><code class="hljs" data-trim contenteditable>
+?- eligible_for_noah_ark(elephant).
+X = elephant ;
+X = cow ;
+X = lion.
+            </code></pre>
           </section>
           <section>
             <h2>The Cut</h2>
+            <pre><code class="hljs" data-trim contenteditable>
+small(X) :- weight_of(X, Y), Y < 500.
+big(X) :- weight_of(X, Y), Y >= 500.
+
+eligible_for_noah_ark(X) :- big(X), !, herbivorous(X).
+eligible_for_noah_ark(X) :- small(X), !, predator(X).
+            </code></pre>
+            <pre><code class="hljs" data-trim contenteditable>
+?- eligible_for_noah_ark(elephant).
+true.
+            </code></pre>
+            <pre><code class="hljs" data-trim contenteditable>
+?- eligible_for_noah_ark(elephant).
+X = elephant.
+            </code></pre>
+          </section>
+          <section>
+            <h2>Not</h2>
+            <pre><code class="hljs" data-trim contenteditable>
+not(P) :- P, !, fail; true.
+
+small(X) :- weight_of(X, Y), Y < 500.
+big(X) :- not(small(X)).
+
+eligible_for_noah_ark(X) :- big(X), herbivorous(X).
+eligible_for_noah_ark(X) :- small(X), predator(X).
+            </code></pre>
+            <pre><code class="hljs" data-trim contenteditable>
+?- eligible_for_noah_ark(elephant).
+true.
+            </code></pre>
+            <pre><code class="hljs" data-trim contenteditable>
+?- eligible_for_noah_ark(X).
+X = lion.
+            </code></pre>
+          </section>
+          <section>
+            <h2>Closed world assumption</h2>
           </section>
         </section>
         <section>
