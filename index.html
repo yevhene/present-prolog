@@ -266,7 +266,7 @@ eligible_for_noah_ark(X) :- small(X), predator(X).
 true.
             </code></pre>
             <pre class="fragment"><code class="hljs" data-trim contenteditable>
-?- eligible_for_noah_ark(elephant).
+?- eligible_for_noah_ark(X).
 X = elephant ;
 X = cow ;
 X = lion.
@@ -286,7 +286,7 @@ eligible_for_noah_ark(X) :- small(X), !, predator(X).
 true.
             </code></pre>
             <pre class="fragment"><code class="hljs" data-trim contenteditable>
-?- eligible_for_noah_ark(elephant).
+?- eligible_for_noah_ark(X).
 X = elephant.
             </code></pre>
           </section>
